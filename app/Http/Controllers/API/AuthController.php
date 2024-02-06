@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Resources\UserResource;
+use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +32,24 @@ class AuthController extends Controller
 
         $user = User::where('email', $credentials['email'])->firstOrFail();
 
-        $token = $user->createToken('apiToken')->plainTextToken;
+        $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json(['token' => $token]);
+    }
+
+    public function user(Request $request): JsonResponse
+    {
+        return response()->json([
+            'user' => $request->user()
+        ]);
+    }
+
+    public function logout(Request $request): JsonResponse
+    {
+        auth()->user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'Logged out'
+        ]);
     }
 }
