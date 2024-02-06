@@ -6,8 +6,6 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Mail;
-// use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\Models\User;
 use App\Notifications;
@@ -62,6 +60,7 @@ class ExpenseTest extends TestCase
             'date' => $expense->date->format('Y-m-d'),
             'value' => $expense->value / 100.0,
         ]);
+
         // Test that the other user's expense is not returned
         $response->assertJsonMissing([
             'description' => $anotherExpense->description,
@@ -135,7 +134,6 @@ class ExpenseTest extends TestCase
     public function test_update_expense()
     {
         $user = User::factory()->create();
-
 
         $expense = $user->expenses()->create([
             'description' => $this->faker->text(191),

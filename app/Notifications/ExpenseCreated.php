@@ -41,7 +41,7 @@ class ExpenseCreated extends Notification implements ShouldQueue
             ->line('Uma nova despesa foi criada!')
             ->line('Descrição: ' . $this->expense->description)
             ->line('Data: ' . $this->expense->date->format('d/m/Y'))
-            ->line('Valor: ' . $this->expense->value)
+            ->line('Valor: ' . $this->expense->value / 100.00)
             ->action('Ver despesa', url('/expenses/' . $this->expense->id))
             ->line('Obrigado por usar nossa aplicação!');
     }
