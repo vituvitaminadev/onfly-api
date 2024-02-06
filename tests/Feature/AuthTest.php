@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -15,8 +13,6 @@ class AuthTest extends TestCase
 
     public function test_register()
     {
-        Notification::fake();
-
         $userData = [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
