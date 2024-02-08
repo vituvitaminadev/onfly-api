@@ -18,7 +18,7 @@ class ExpenseResource extends JsonResource
             'id' => $this->id,
             'description' => $this->description,
             'date' => $this->date->format('Y-m-d'),
-            'value' => $this->value / 100.0,
+            'value' => $this->value / 100,
             'user_id' => $this->user_id,
             'created_at' => $this->created_at->format('Y-m-d\TH:i:s\Z'),
             'updated_at' => $this->updated_at->format('Y-m-d\TH:i:s\Z'),
