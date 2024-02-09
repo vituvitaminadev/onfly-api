@@ -23,7 +23,7 @@ php artisan migrate
 ```bash
 php artisan serve
 ```
-7. Start the queue for the mail service
+7. Start the queue for the mail process
 ```bash
 php artisan queue:work
 ```
