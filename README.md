@@ -35,4 +35,4 @@ The documentation for the API can be found <a href="https://documenter.getpostma
 
 ### Front-end
 
-The UI part of the challenge can be found <a href="[https://](https://github.com/vituvitaminadev/onfly-front)">here.</a>
+The UI part of the challenge can be found <a href="https://github.com/vituvitaminadev/onfly-front" target="_blank">here.</a>
